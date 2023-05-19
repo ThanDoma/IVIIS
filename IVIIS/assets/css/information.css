@@ -1,0 +1,43 @@
+.main_block_1 {
+    width: 22%;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px black solid;
+    text-align: center;
+    font-size: 18pt;
+    margin-left: 5%;
+    margin-top: 3%;
+
+}
+
+.main_block_2 {
+    width: 30%;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px black solid;
+    text-align: center;
+    font-size: 18pt;
+    margin-left: 30%;
+}
+
+.main_block_3 {
+    width: 30%;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px black solid;
+    text-align: center;
+    font-size: 18pt;
+    margin-left: 63%;
+}
+
+b{
+    color: rgb(48, 48, 48);
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: -1%;
+    text-align: left;
+    }

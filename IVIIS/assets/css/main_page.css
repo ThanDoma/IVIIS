@@ -1,0 +1,272 @@
+body {
+  width: 99%;
+  height: 100%;
+}
+
+.header {
+  width: 98%;
+  height: 90px;
+  padding-left: 1%;
+  padding-top: 1%;
+}
+
+.menu_back {
+  width: 33%;
+  height: 70px;
+  float: right;
+  font-family: "Jura-Light";
+}
+
+.logo_back {
+  width: 30%;
+  height: 70px;
+  float: left;
+  padding-top: 0.7%;
+  padding-left: 0.8%;
+}
+
+.label_back {
+  width: 33%;
+  height: 70px;
+  float: left;
+  padding-bottom: -3%;
+}
+
+.label {
+  padding-left: 17%;
+  text-align: center;
+  font-family: "Jura-Light";
+}
+
+.info_txt {
+  float: left;
+  font-size: 24px;
+}
+
+.security_txt {
+  float: left;
+  margin-left: 7%;
+  font-size: 24px;
+}
+
+.decision_txt {
+  float: left;
+  margin-left: 7%;
+  font-size: 24px;
+}
+
+.threats_txt {
+  float: left;
+  margin-left: 7%;
+  font-size: 24px;
+}
+
+@font-face {
+  font-family: "Jura-Light";
+  src: url("C:/Users/ThanDoma v2/Desktop/IVIIST V2/assets/font/Jura-Light.ttf");
+}
+
+.link a {
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+  color: #000;
+}
+
+.link a:after {
+  display: block;
+  content: "";
+  height: 3px;
+  width: 0%;
+  background-color: #000;
+  transition: width 0.4s ease-in-out;
+}
+
+.link a:hover:after,
+.link a:focus:after {
+  width: 100%;
+}
+
+.div1 {
+  width: 99%;
+  height: 95px;
+  margin: auto;
+  background-image: linear-gradient(black 5vw, transparent 5vw, transparent 15vw, black 15vw),
+    linear-gradient(90deg, black 5vw, transparent 5vw, transparent 15vw, black 15vw),
+    linear-gradient(black 5vw, transparent 5vw, transparent 15vw, black 15vw),
+    linear-gradient(90deg, black 5vw, transparent 5vw, transparent 15vw, black 15vw);
+  background-size: 5px 20vw, 20vw 5px, 5px 20vw, 20vw 5px;
+  background-position: 0 0, 0 0, 100% 100%, 100% 100%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+}
+
+.label_main_block {
+  font-family: "Jura-Light";
+  margin-top: 15%;
+  text-align: center;
+  font-size: 50px;
+}
+
+section {
+  margin-top: 3%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section:nth-child(1) {
+  color: #e0ffff;
+}
+
+section h2 {
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Jura-Light";
+  font-weight: 1000;
+}
+
+section .text-container {
+  display: flex;
+
+}
+
+section .text-container .text-box {
+  margin: 20px;
+  padding: 20px;
+  width: 25%;
+}
+
+section .text-container .text-box h3 {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: "Jura-Light";
+}
+
+@media (max-width: 900px) {
+  section h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  section .text-container {
+    flex-direction: column;
+  }
+}
+
+.reveal {
+  position: relative;
+  opacity: 0;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+
+.active.fade-bottom {
+  animation: fade-bottom 1s ease-in;
+}
+
+@keyframes fade-bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    border: #000;
+    border-radius: 2px;
+  }
+}
+
+.text {
+  text-align: center;
+  font-family: "Jura-Light";
+  font-weight: 1000;
+}
+
+@font-face {
+  font-family: "Jura-Light";
+  src: url("C:/Users/ThanDoma v2/Desktop/new_iviist/assets/font/Jura-Light.ttf");
+}
+
+.border {
+  border: 3px solid black;
+}
+
+.btn {
+  background: none;
+  border: none;
+}
+
+a.botr {
+  background: none;
+  width: 225px;
+  display: block;
+  height: 33px;
+  font-weight: 1500;
+  padding-top: 19px;
+  border: 4px solid #000;
+  margin: 20px auto;
+  margin-left: 20%;
+  font-family: Jura-Light;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  opacity: .8;
+  letter-spacing: 1px;
+  -webkit-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  -moz-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  -o-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  /* linear */
+}
+
+a.botr:hover {
+  width: 225px;
+  height: 33px;
+  padding-top: 19px;
+  border: 4px solid teal;
+  margin: 20px auto;
+  font-weight: 1500;
+  margin-left: 20%;
+  opacity: 1;
+  letter-spacing: 4px;
+  -webkit-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  -moz-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  -o-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+  /* linear */
+}
+
+.link_main {
+  text-decoration: none;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.github{
+  width: 5.5%;
+  height: 5.5%;
+}
+
+.whater_mark{
+  float: left;
+  width: 49%;
+  text-align: right;
+}
+
+.links{
+  bottom:0;
+  float: left;
+  width: 49%;
+}
