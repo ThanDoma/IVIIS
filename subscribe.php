@@ -109,9 +109,11 @@
 
     <div class="radio-group">
         <input type="radio" name="form-group" value="opt1" checked>
-        <label for="form1">Форма 1</label>
+        <label for="form1">Подписаться</label>
         <input type="radio" name="form-group" value="opt2">
-        <label for="form2">Форма 2</label>
+        <label for="form2">Отписаться</label>
+        <input type="radio" name="form-group" value="opt3">
+        <label for="form3">Изменить</label>
     </div>
 
     <div class="form-container active popup" id="form1">
@@ -128,24 +130,40 @@
         <form method="POST">
             <label for="email">Отписаться от рассылкы</label>
             <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
-            <button type="submit" name="submit" value="submit">Отписаться</button>
-            <label for="email">Изменить адрес email</label>
-            <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
-            <button type="submit" name="submit" value="submit">Отписаться</button>
+            <button type="submit" name="submit" value="delete">Отписаться</button>
         </form>
     </div>
 
+
+    <div class="form-container popup" id="form3" style="display: none;">
+        <form method="POST">
+            <label for="email">Изменить адрес рассылки</label>
+            <input type="email" id="email" name="email" placeholder="Введите старый email" required>
+            <input type="email" id="email" name="email" placeholder="Введите новый email" required>
+            <button type="submit" name="submit" value="change">Изменить</button>
+        </form>
+    </div>
+    <script>
+
+    </script>
     <script>
         document.querySelectorAll('input[name="form-group"]').forEach(radio => {
-            radio.addEventListener('change', function () {
-                if (this.value === 'opt1') {
-                    document.getElementById('form1').style.display = 'block';
-                    document.getElementById('form2').style.display = 'none';
-                } else if (this.value === 'opt2') {
-                    document.getElementById('form1').style.display = 'none';
-                    document.getElementById('form2').style.display = 'block';
-                }
-            });
+            radio.addEventListener('change',
+                function () {
+                    if (this.value === 'opt1') {
+                        document.getElementById('form1').style.display = 'block';
+                        document.getElementById('form2').style.display = 'none';
+                        document.getElementById('form3').style.display = 'none';
+                    } else if (this.value === 'opt2') {
+                        document.getElementById('form1').style.display = 'none';
+                        document.getElementById('form2').style.display = 'block';
+                        document.getElementById('form3').style.display = 'none';
+                    } else if (this.value === 'opt3') {
+                        document.getElementById('form1').style.display = 'none';
+                        document.getElementById('form2').style.display = 'none';
+                        document.getElementById('form3').style.display = 'block';
+                    }
+                });
         });
     </script>
 
@@ -157,7 +175,7 @@
 
     </div> -->
 
-    <!-- <?php
+    <?php
     $link = mysqli_connect("localhost", "root", "")
         or die("Не могу подключиться");
 
@@ -172,7 +190,7 @@
 
 
     mysqli_close($link);
-    ?> -->
+    ?>
 </body>
 
 </html>
