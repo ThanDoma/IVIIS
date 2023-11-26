@@ -3,16 +3,25 @@
 <head>
     <title>IVIIST</title>
     <link href="assets/css/main_page.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/subscribe.css" rel="stylesheet" type="text/css">
     <script src="assets/js/main_page.js"></script>
-    <!-- <script src="assets/js/subscribe.js"></script> -->
     <style>
         .form-container {
             display: none;
         }
 
+        .all_radio {
+            margin-left: 38.3%;
+            margin-top: 10%;
+        }
+
         .radio-group {
-            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+            padding: 0px 15px;
+            line-height: 34px;
+            border: 1px solid #999;
+            border-radius: 6px;
+            user-select: none;
         }
 
         .radio-group input[type="radio"] {
@@ -106,15 +115,21 @@
             </div>
         </div>
     </div>
-
-    <div class="radio-group">
-        <input type="radio" name="form-group" value="opt1" checked>
-        <label for="form1">Подписаться</label>
-        <input type="radio" name="form-group" value="opt2">
-        <label for="form2">Отписаться</label>
-        <input type="radio" name="form-group" value="opt3">
-        <label for="form3">Изменить</label>
+    <div class="all_radio">
+        <div class="radio-group">
+            <input type="radio" name="form-group" value="opt1" checked>
+            <label for="form1">Подписаться</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" name="form-group" value="opt2">
+            <label for="form2">Отписаться</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" name="form-group" value="opt3">
+            <label for="form3">Изменить</label>
+        </div>
     </div>
+
 
     <div class="form-container active popup" id="form1">
         <form method="POST">
@@ -149,7 +164,7 @@
     <script>
         document.querySelectorAll('input[name="form-group"]').forEach(radio => {
             radio.addEventListener('change',
-                function () {
+                function() {
                     if (this.value === 'opt1') {
                         document.getElementById('form1').style.display = 'block';
                         document.getElementById('form2').style.display = 'none';
@@ -167,15 +182,10 @@
         });
     </script>
 
-    <!-- <div  >
-
-    </div>
-
-    <div class="popup">
-
-    </div> -->
-
     <?php
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(E_ALL);
     $link = mysqli_connect("localhost", "root", "")
         or die("Не могу подключиться");
 
