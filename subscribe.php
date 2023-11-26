@@ -97,7 +97,7 @@
         <div class="label_back">
             <a href="main_page.html" class="link_main">
                 <h1 class="label" title="INCIDENTS OF INTERNAL VIOLATIONS
-                INFORMATION SECURITY">IIVIS</h1>
+  INFORMATION SECURITY">IIVIS</h1>
             </a>
         </div>
         <div class="menu_back link">
@@ -145,7 +145,7 @@
         <form method="POST">
             <label for="email">Отписаться от рассылкы</label>
             <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
-            <button type="submit" name="submit" value="delete">Отписаться</button>
+            <button type="submit" name="delete" value="delete">Отписаться</button>
         </form>
     </div>
 
@@ -154,12 +154,11 @@
         <form method="POST">
             <label for="email">Изменить адрес рассылки</label>
             <input type="email" id="email" name="email" placeholder="Введите старый email" required>
-            <input type="email" id="email" name="email" placeholder="Введите новый email" required>
-            <button type="submit" name="submit" value="change">Изменить</button>
+            <input type="email" id="n_email" name="n_email" placeholder="Введите новый email" required>
+            <button type="submit" name="change" value="change">Изменить</button>
         </form>
     </div>
     <script>
-
     </script>
     <script>
         document.querySelectorAll('input[name="form-group"]').forEach(radio => {
@@ -172,7 +171,6 @@
                     } else if (this.value === 'opt2') {
                         document.getElementById('form1').style.display = 'none';
                         document.getElementById('form2').style.display = 'block';
-                        document.getElementById('form3').style.display = 'none';
                     } else if (this.value === 'opt3') {
                         document.getElementById('form1').style.display = 'none';
                         document.getElementById('form2').style.display = 'none';
@@ -186,6 +184,7 @@
     ini_set('display_errors', 0);
     ini_set('display_startup_errors', 0);
     error_reporting(E_ALL);
+
     $link = mysqli_connect("localhost", "root", "")
         or die("Не могу подключиться");
 
@@ -193,11 +192,19 @@
 
     if ($_POST['submit'] <> "") {
         $user = $_POST['name_user'];
-        $email = $_POST['email'];
-        $result = mysqli_query($link, "INSERT INTO `Subscribers` (`name_u`, `mail`) VALUES ('$user', '$email')");
+        $mail = $_POST['email'];
+        $find = mysqli_query($link, "SELECT `mail` FROM `Subscribers` WHERE `mail`='$mail'");
+        echo ($find);
+        // echo ($mail);
+        $result = mysqli_query($link, "INSERT INTO `Subscribers` (`name_u`, `mail`) VALUES ('$user', '$mail')");
+    } else if ($_POST["delete"] <> "") {
+        $mail = $_POST["email"];
+        $result = mysqli_query($link, "DELETE FROM `Subscribers` WHERE `mail`='$mail'");
+    } else if ($_POST["change"] <> "") {
+        $mail = $_POST["email"];
+        $n_mail = $_POST["n_email"];
+        $result = mysqli_query($link, "UPDATE `Subscribers` SET `mail`='$n_mail' WHERE `mail`='$mail'");
     }
-
-
 
     mysqli_close($link);
     ?>
