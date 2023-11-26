@@ -193,10 +193,16 @@
     if ($_POST['submit'] <> "") {
         $user = $_POST['name_user'];
         $mail = $_POST['email'];
-        $find = mysqli_query($link, "SELECT `mail` FROM `Subscribers` WHERE `mail`='$mail'");
-        echo ($find);
+        $find = mysqli_query($link, "SELECT * FROM `Subscribers` WHERE `mail`='$mail'");
+        $result = mysqli_query($link, $find);
+        if ($mysqli_num_rows == 0) {
+            $result = mysqli_query($link, "INSERT INTO `Subscribers` (`name_u`, `mail`) VALUES ('$user', '$mail')");
+        }
+        // if ($find == null) {
+        //     
+        // }
         // echo ($mail);
-        $result = mysqli_query($link, "INSERT INTO `Subscribers` (`name_u`, `mail`) VALUES ('$user', '$mail')");
+
     } else if ($_POST["delete"] <> "") {
         $mail = $_POST["email"];
         $result = mysqli_query($link, "DELETE FROM `Subscribers` WHERE `mail`='$mail'");
