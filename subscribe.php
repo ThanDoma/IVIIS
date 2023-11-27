@@ -138,6 +138,8 @@
             <label for="name_user">Как к Вам обращаться?</label>
             <input type="name_user" id="name_user" name="name_user" required>
             <button type="submit" name="submit" value="submit">Подписаться</button>
+            <br>
+            <button type="submit" name="checked" value="checked">Проверить</button>
         </form>
     </div>
 
@@ -158,6 +160,7 @@
             <button type="submit" name="change" value="change">Изменить</button>
         </form>
     </div>
+
     <script>
     </script>
     <script>
@@ -193,16 +196,26 @@
     if ($_POST['submit'] <> "") {
         $user = $_POST['name_user'];
         $mail = $_POST['email'];
-        $find = mysqli_query($link, "SELECT * FROM `Subscribers` WHERE `mail`='$mail'");
-        $result = mysqli_query($link, $find);
-        if ($mysqli_num_rows == 0) {
-            $result = mysqli_query($link, "INSERT INTO `Subscribers` (`name_u`, `mail`) VALUES ('$user', '$mail')");
-        }
-        // if ($find == null) {
-        //     
-        // }
-        // echo ($mail);
+        $result = mysqli_query($link, "INSERT INTO `Subscribers` (`name_u`, `mail`) VALUES ('$user', '$mail')");
+    } else if ($_POST['checked'] <> "") {
+        $count = 0;
+        $mail = $_POST['email'];
+        $sel = mysqli_query($link, "SELECT * FROM `Subscribers` WHERE (`mail` = '$mail')");
+        if ($sel == '') {
+        } else
 
+
+            while ($myrow = mysqli_fetch_array($sel)) {
+                $count++;
+            }
+
+        if ($count > 0) {
+            echo "<table border = 1><caption>Результаты поиска</caption>";
+            echo "<tr>";
+            echo "<td>" . 'Почта уже зарегестрирована'. "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
     } else if ($_POST["delete"] <> "") {
         $mail = $_POST["email"];
         $result = mysqli_query($link, "DELETE FROM `Subscribers` WHERE `mail`='$mail'");
